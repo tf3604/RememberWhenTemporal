@@ -2,26 +2,19 @@
 <SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="AutoTrackerDemos">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
-      <Items>
-        <ConnectionNode Name="(local)\sql2016:HANSENFAM\hansen">
-          <Created>2017-06-03T12:24:48.4203947-05:00</Created>
-          <Type>SQL</Type>
-          <Server>(local)\sql2016</Server>
-          <UserName />
-          <Authentication>Windows Authentication</Authentication>
-          <InitialDB />
-          <LoginTimeout>30</LoginTimeout>
-          <ExecutionTimeout>0</ExecutionTimeout>
-          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
-          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
-        </ConnectionNode>
-      </Items>
+      <Items />
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
+        <FileNode Name="AtTimeZone.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>AtTimeZone.sql</FullPath>
+        </FileNode>
         <FileNode Name="CreateAutoTrackerDatabase.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>CreateAutoTrackerDatabase.sql</FullPath>
         </FileNode>
