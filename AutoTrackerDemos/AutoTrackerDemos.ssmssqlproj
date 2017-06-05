@@ -18,11 +18,29 @@
           <AssociatedConnUserName />
           <FullPath>CreateAutoTrackerDatabase.sql</FullPath>
         </FileNode>
+        <FileNode Name="CreateFunctionsAndProcs.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>CreateFunctionsAndProcs.sql</FullPath>
+        </FileNode>
         <FileNode Name="CreateSupportingData.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>CreateSupportingData.sql</FullPath>
+        </FileNode>
+        <FileNode Name="TransactionsAndMultiTableQuerying.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>TransactionsAndMultiTableQuerying.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Workload.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Workload.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
