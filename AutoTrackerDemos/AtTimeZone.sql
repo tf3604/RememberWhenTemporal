@@ -1,1 +1,0 @@
-select cast('2017-06-10 10:10:00' as datetime2) at time zone 'Central Standard Time' at time zone 'UTC';

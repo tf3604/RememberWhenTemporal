@@ -6,47 +6,83 @@
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
-        <FileNode Name="AtTimeZone.sql">
+        <FileNode Name="000 - RestoreUtilityDB.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>AtTimeZone.sql</FullPath>
+          <FullPath>000 - RestoreUtilityDB.sql</FullPath>
         </FileNode>
-        <FileNode Name="CreateAutoTrackerDatabase.sql">
+        <FileNode Name="010 - CreateAutoTrackerDatabase.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>CreateAutoTrackerDatabase.sql</FullPath>
+          <FullPath>010 - CreateAutoTrackerDatabase.sql</FullPath>
         </FileNode>
-        <FileNode Name="CreateFunctionsAndProcs.sql">
+        <FileNode Name="011 - CreateFunctionsAndProcs.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>CreateFunctionsAndProcs.sql</FullPath>
+          <FullPath>011 - CreateFunctionsAndProcs.sql</FullPath>
         </FileNode>
-        <FileNode Name="CreateSupportingData.sql">
+        <FileNode Name="012 - StartWorkload.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>CreateSupportingData.sql</FullPath>
+          <FullPath>012 - StartWorkload.sql</FullPath>
         </FileNode>
-        <FileNode Name="RestoreUtilityDB.sql">
+        <FileNode Name="013 - VerifyWorkload.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>RestoreUtilityDB.sql</FullPath>
+          <FullPath>013 - VerifyWorkload.sql</FullPath>
         </FileNode>
-        <FileNode Name="TransactionsAndMultiTableQuerying.sql">
+        <FileNode Name="020 - CreateAutoTracker_2_Database.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>TransactionsAndMultiTableQuerying.sql</FullPath>
+          <FullPath>020 - CreateAutoTracker_2_Database.sql</FullPath>
         </FileNode>
-        <FileNode Name="Workload.sql">
+        <FileNode Name="030 - TemporalDML.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>Workload.sql</FullPath>
+          <FullPath>030 - TemporalDML.sql</FullPath>
+        </FileNode>
+        <FileNode Name="031 - Transactions.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>031 - Transactions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="040 - QueryingTemporal.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>040 - QueryingTemporal.sql</FullPath>
+        </FileNode>
+        <FileNode Name="041 - MultiTableQuerying.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>041 - MultiTableQuerying.sql</FullPath>
+        </FileNode>
+        <FileNode Name="042 - AtTimeZone.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>042 - AtTimeZone.sql</FullPath>
+        </FileNode>
+        <FileNode Name="050 - Administration.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>050 - Administration.sql</FullPath>
+        </FileNode>
+        <FileNode Name="060 - PurgingHistory.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>060 - PurgingHistory.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
