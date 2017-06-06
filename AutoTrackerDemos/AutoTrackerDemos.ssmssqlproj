@@ -30,6 +30,12 @@
           <AssociatedConnUserName />
           <FullPath>CreateSupportingData.sql</FullPath>
         </FileNode>
+        <FileNode Name="RestoreUtilityDB.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>RestoreUtilityDB.sql</FullPath>
+        </FileNode>
         <FileNode Name="TransactionsAndMultiTableQuerying.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />

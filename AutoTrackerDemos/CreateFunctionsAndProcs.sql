@@ -4,7 +4,7 @@ drop procedure if exists utility.spGenerateRandomCustomers;
 drop procedure if exists utility.spUpdateRandomCustomer;
 drop procedure if exists utility.spGenerateRandomDealers;
 drop procedure if exists utility.spUpdateRandomDealer;
-drop procedure if exists utility.spCreateAuto;
+drop procedure if exists utility.spCreateAutomobile;
 drop table if exists utility.WorkloadDriver;
 go
 drop schema if exists utility;
@@ -117,7 +117,7 @@ cross apply bkhUtility.utility.fnGenerateRandomCustomer(
 	(binary_checksum(newid()) + 2147483648.) / 4294967296.) dlr
 where d.DealerId = @dealerId
 go
-create procedure utility.spCreateAuto
+create procedure utility.spCreateAutomobile
 as
 declare @modelCount int = (select count(*) from dbo.AutoModel);
 declare @randomNumber int = cast((binary_checksum(newid()) + 2147483648.) / 4294967296. * @modelCount + 1 as int);
@@ -135,8 +135,6 @@ where Sk = @randomNumber;
 
 insert dbo.Automobile (ModelId, VIN)
 values (@modelId, replace(lower(cast(newid() as nvarchar(50))), '-', ''));
-go
-select * from dbo.Automobile;
 go
 create table utility.WorkloadDriver
 (
