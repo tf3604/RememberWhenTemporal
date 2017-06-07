@@ -8,8 +8,15 @@ go
 -- 3: Stretch DB (no demo)
 
 -- Purging the history table via custom script.
--- Identify about 100 rows in the CustomerHistory table.
 
+-- Check our history and archive tables first:
+select count(*) NbrRows from history.CustomerHistory;
+select count(*) NbrRows from history.CustomerArchive;
+
+-- Now try the purge
+
+-- Let's just try what seems the most straightforward approach:
+-- Identify about 100 rows in the CustomerHistory table.
 begin transaction;
 
 declare @cutoff datetime2;
@@ -17,7 +24,7 @@ declare @cutoff datetime2;
 select @cutoff = ValidTo
 from history.CustomerHistory
 order by ValidTo
-offset 100 rows
+offset 99 rows
 fetch next 1 row only;
 
 insert history.CustomerArchive (CustomerId, FirstName, LastName, Address, City, State, ValidFrom, ValidTo)
@@ -52,7 +59,7 @@ declare @cutoff datetime2;
 select @cutoff = ValidTo
 from history.CustomerHistory
 order by ValidTo
-offset 100 rows
+offset 99 rows
 fetch next 1 row only;
 
 alter table dbo.Customer set (system_versioning = off);
@@ -85,7 +92,7 @@ declare @cutoff datetime2;
 select @cutoff = ValidTo
 from history.CustomerHistory
 order by ValidTo
-offset 100 rows
+offset 99 rows
 fetch next 1 row only;
 
 declare @offSql nvarchar(max) = 'alter table dbo.Customer set (system_versioning = off);';
@@ -108,4 +115,7 @@ commit transaction;
 go
 
 -- Check if it worked
+select count(*) NbrRows from history.CustomerHistory;
+select count(*) NbrRows from history.CustomerArchive;
+
 select * from history.CustomerArchive;

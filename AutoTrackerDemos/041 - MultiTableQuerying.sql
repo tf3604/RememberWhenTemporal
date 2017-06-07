@@ -1,5 +1,7 @@
--- Find an ownership record that has changed
+use AutoTracker;
+go
 
+-- Find an ownership record that has changed
 select top 1 OwnershipId, ValidFrom, ValidTo,
 	dateadd(millisecond, datediff(millisecond, ValidFrom, ValidTo), ValidFrom) ValidMidPoint
 from history.OwnershipHistory

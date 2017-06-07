@@ -13,6 +13,7 @@ go
 
 ----------------------------------------------------------------------------------------------------
 -- Create database.  Adjust paths as needed.
+-- Nothing special here.  It's just a database, no features need to be enabled.
 ----------------------------------------------------------------------------------------------------
 create database AutoTracker2
 on (name = N'AutoTracker2', filename = N'c:\data\sql2016\data\AutoTracker2.mdf' , size = 10240kb , filegrowth = 10240kb )
@@ -230,6 +231,7 @@ create table history.AutomobileHistory
 	ValidTo datetime2 not null
 );
 go
+-- This is the same index that SQL would put on the table if it created the history table.
 create clustered index idx1_AutomobileHistory on history.AutomobileHistory (ValidTo, ValidFrom);
 go
 create table dbo.Automobile
@@ -347,18 +349,18 @@ declare @nowPlus70 datetime2 = dateadd(minute, 70, @now);
 declare @nowPlus75 datetime2 = dateadd(minute, 75, @now);
 
 create partition function fnOwnershipHistoryPartitionByEndTime (datetime2)
-as range left for values ('1900-01-01', @now, @nowPlus5, @nowPlus10, @nowPlus15, @nowPlus20, @nowPlus25, @nowPlus30, @nowPlus35, @nowPlus40, @nowPlus45, @nowPlus50, @nowPlus55, @nowPlus60, @nowPlus65, @nowPlus70, @nowPlus75);
+as range left for values ('1900-01-01', @nowPlus5, @nowPlus10, @nowPlus15, @nowPlus20, @nowPlus25, @nowPlus30, @nowPlus35, @nowPlus40, @nowPlus45, @nowPlus50, @nowPlus55, @nowPlus60, @nowPlus65, @nowPlus70, @nowPlus75);
 
 create partition function fnOwnershipArchivePartitionByEndTime (datetime2)
-as range left for values ('1900-01-01', @now, @nowPlus5, @nowPlus10, @nowPlus15, @nowPlus20, @nowPlus25, @nowPlus30, @nowPlus35, @nowPlus40, @nowPlus45, @nowPlus50, @nowPlus55, @nowPlus60, @nowPlus65, @nowPlus70, @nowPlus75);
+as range left for values ('1900-01-01', @nowPlus5, @nowPlus10, @nowPlus15, @nowPlus20, @nowPlus25, @nowPlus30, @nowPlus35, @nowPlus40, @nowPlus45, @nowPlus50, @nowPlus55, @nowPlus60, @nowPlus65, @nowPlus70, @nowPlus75);
 go
 create partition scheme schemeOwnershipHistoryByEndTime
 as partition fnOwnershipHistoryPartitionByEndTime
-to ([primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary]);
+to ([primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary]);
 go
 create partition scheme schemeOwnershipArchiveByEndTime
 as partition fnOwnershipHistoryPartitionByEndTime
-to ([primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary]);
+to ([primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary]);
 go
 create table history.OwnershipHistory
 (

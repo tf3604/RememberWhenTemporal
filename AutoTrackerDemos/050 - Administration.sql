@@ -2,7 +2,7 @@ use AutoTracker;
 go
 
 -- sys.tables new columns
-select name, temporal_type, temporal_type_desc, history_table_id
+select object_id, name, temporal_type, temporal_type_desc, history_table_id
 from sys.tables;
 
 -- sys.columns new columns
@@ -14,7 +14,7 @@ where s.name = 'dbo'
 and t.name = 'Automobile';
 
 -- sys.periods new catalog view
-select p.name, p.period_type, p.period_type_desc, sc.name start_column_name, ec.name end_column_name
+select p.name, p.period_type, p.period_type_desc, t.name, sc.name start_column_name, ec.name end_column_name
 from sys.periods p
 inner join sys.tables t on t.object_id = p.object_id
 inner join sys.columns sc on sc.object_id = t.object_id and sc.column_id = p.start_column_id

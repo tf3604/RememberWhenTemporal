@@ -1,3 +1,10 @@
+use AutoTracker2;
+go
+
+select ModelId, ManufacturerId, ModelName, Description, ValidFrom, ValidTo
+from history.AutoModelHistory
+where ModelId = 1;
+
 -- Normally, we don't query the history table directly.  Rather, there are new SQL language features to help us out.
 -- This is the "for system_time" clause, which comes in several varieties.
 -- The most common is probably "as of"
@@ -5,6 +12,9 @@
 select ModelId, ManufacturerId, ModelName, Description, ValidFrom, ValidTo
 from dbo.AutoModel for system_time as of '2017-06-06 19:58:02.6600107'
 where ModelId = 1;
+
+-- View the query plan from the previous query to show that it is accessing the history table even though it's
+-- not being explicitly referenced in the query.
 
 -- Other constructs allow us to specify a range of valid times.
 -- The difference between these constructs is what endpoints are or are not included.

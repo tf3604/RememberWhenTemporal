@@ -24,11 +24,17 @@
           <AssociatedConnUserName />
           <FullPath>011 - CreateFunctionsAndProcs.sql</FullPath>
         </FileNode>
-        <FileNode Name="012 - StartWorkload.sql">
+        <FileNode Name="012a - StartWorkload.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>012 - StartWorkload.sql</FullPath>
+          <FullPath>012a - StartWorkload.sql</FullPath>
+        </FileNode>
+        <FileNode Name="012b - StartWorkload.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>012b - StartWorkload.sql</FullPath>
         </FileNode>
         <FileNode Name="013 - VerifyWorkload.sql">
           <AssociatedConnectionMoniker />

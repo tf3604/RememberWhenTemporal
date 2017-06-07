@@ -3,6 +3,9 @@ select sysdatetime() at time zone 'Central Standard Time' at time zone 'UTC';
 select sysdatetimeoffset() at time zone 'UTC';
 select sysutcdatetime();
 
+-- What time is it in India right now?
+select sysdatetimeoffset() at time zone 'India Standard Time';
+
 -- Input must be a smalldatetime, datetime, datetime2 or datetimeoffset.
 -- A string (that is a valid datetime) will fail.
 select '2017-06-10 10:10:00' at time zone 'Central Standard Time' at time zone 'UTC';
