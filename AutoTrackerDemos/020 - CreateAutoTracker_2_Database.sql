@@ -138,6 +138,9 @@ create schema history authorization dbo;
 -- Create tables.
 ----------------------------------------------------------------------------------------------------
 go
+-- Create table without specifying the history table name.
+-- SQL Server will create a history table with system-generated
+-- name with the same schema as the base table.
 create table dbo.Manufacturer
 (
 	ManufacturerId int not null identity(1,1),
@@ -149,6 +152,9 @@ create table dbo.Manufacturer
 )
 with (system_versioning = on);
 
+-- The table appears in Management Studio.
+-- Note the new temporal icon for the table.
+-- Note that the history table is a subnode under the base table.
 -- Query to find the name of the history table
 select	t.object_id,
 		s.name source_table_schema,
@@ -169,6 +175,8 @@ values (1, 'FordoyotaBenz');
 set identity_insert dbo.Manufacturer off;
 go
 
+-- Create table and specify the name of the history table.
+-- The history table will automatically be created with the same schema.
 -- Note the "hidden" keyword on the datetime2 columns.
 create table dbo.AutoModel
 (
@@ -210,6 +218,8 @@ values (1, 'Squeeze', 'Mini'),
 (1, 'KidTaxi', 'Small SUV'),
 (1, 'Guzzler', 'Large SUV');
 go
+
+-- This time we'll create the history table manually.
 create table history.AutomobileHistory
 (
 	AutomobileId int not null,
@@ -238,6 +248,10 @@ with (system_versioning = on (history_table = history.AutomobileHistory));
 go
 drop table if exists history.CustomerHistory;
 go
+
+-- Once again create the history table manually.
+-- Let's outsmart SQL and add a column to capture the name of
+-- the user who caused the history record to be added.
 create table history.CustomerHistory
 (
 	CustomerId int not null,
@@ -268,6 +282,8 @@ create table dbo.Customer
 )
 with (system_versioning = on (history_table = history.CustomerHistory));
 go
+
+-- Create an archive table.  We'll return to this later.
 create table history.CustomerArchive
 (
 	CustomerId int not null,
@@ -282,6 +298,8 @@ create table history.CustomerArchive
 go
 create clustered index ix1_CustomerArchive on history.CustomerArchive (ValidTo, ValidFrom);
 go
+
+-- Nothing special here.
 create table dbo.Dealer
 (
 	DealerId int not null identity(1,1),
@@ -296,6 +314,9 @@ create table dbo.Dealer
 )
 with (system_versioning = on (history_table = history.DealerHistory));
 go
+
+-- Create a history table and an archive table with partitioning.
+-- We'll come back to this.
 if exists (select * from sys.partition_schemes ps where ps.name = 'schemeOwnershipHistoryByEndTime')
 	drop partition scheme schemeOwnershipHistoryByEndTime;
 go
