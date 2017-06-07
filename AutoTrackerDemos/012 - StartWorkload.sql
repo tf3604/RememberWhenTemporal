@@ -1,3 +1,6 @@
+use AutoTracker;
+go
+
 if not exists (select * from dbo.Customer)
 	exec utility.spGenerateRandomCustomers 10000;
 if not exists (select * from dbo.Dealer)

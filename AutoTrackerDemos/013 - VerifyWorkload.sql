@@ -1,3 +1,6 @@
+use AutoTracker;
+go
+
 select * from history.OwnershipHistory;
 select * from history.CustomerHistory;
 select * from history.DealerHistory;
