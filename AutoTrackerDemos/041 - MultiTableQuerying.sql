@@ -3,7 +3,7 @@ go
 
 -- Find an ownership record that has changed
 select top 1 OwnershipId, ValidFrom, ValidTo,
-	dateadd(millisecond, datediff(millisecond, ValidFrom, ValidTo), ValidFrom) ValidMidPoint
+	dateadd(millisecond, datediff(millisecond, ValidFrom, ValidTo) / 2, ValidFrom) ValidMidPoint
 from history.OwnershipHistory
 where CustomerId is not null
 order by OwnershipId;
