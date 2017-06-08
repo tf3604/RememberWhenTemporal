@@ -12,6 +12,12 @@
           <AssociatedConnUserName />
           <FullPath>000 - RestoreUtilityDB.sql</FullPath>
         </FileNode>
+        <FileNode Name="009 - CreateLegacyHistory.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>009 - CreateLegacyHistory.sql</FullPath>
+        </FileNode>
         <FileNode Name="010 - CreateAutoTrackerDatabase.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
@@ -89,6 +95,24 @@
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>060 - PurgingHistory.sql</FullPath>
+        </FileNode>
+        <FileNode Name="061 - PurgingWithPartitions.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>061 - PurgingWithPartitions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="070 - SchemaChanges.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>070 - SchemaChanges.sql</FullPath>
+        </FileNode>
+        <FileNode Name="080 - ConvertExistingHistory.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>080 - ConvertExistingHistory.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

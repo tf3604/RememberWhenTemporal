@@ -13,7 +13,13 @@ values ('Miguel', 'Jones', '6766 S Nyla Ct', 'Hollywood', 'FL');
 
 declare @CustomerId int = scope_identity();
 
-waitfor delay '0:00:10';
+waitfor delay '0:00:05';
+
+update dbo.Customer
+set State = 'CA'
+where CustomerId = @CustomerId;
+
+waitfor delay '0:00:05';
 
 insert dbo.Automobile (ModelId, VIN)
 values (1, replace(lower(cast(newid() as nvarchar(50))), '-', ''));

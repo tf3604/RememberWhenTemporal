@@ -349,17 +349,17 @@ declare @nowPlus70 datetime2 = dateadd(minute, 70, @now);
 declare @nowPlus75 datetime2 = dateadd(minute, 75, @now);
 
 create partition function fnOwnershipHistoryPartitionByEndTime (datetime2)
-as range left for values ('1900-01-01', @nowPlus5, @nowPlus10, @nowPlus15, @nowPlus20, @nowPlus25, @nowPlus30, @nowPlus35, @nowPlus40, @nowPlus45, @nowPlus50, @nowPlus55, @nowPlus60, @nowPlus65, @nowPlus70, @nowPlus75);
+as range left for values (@now, @nowPlus5, @nowPlus10, @nowPlus15, @nowPlus20, @nowPlus25, @nowPlus30, @nowPlus35, @nowPlus40, @nowPlus45, @nowPlus50, @nowPlus55, @nowPlus60, @nowPlus65, @nowPlus70, @nowPlus75);
 
 create partition function fnOwnershipArchivePartitionByEndTime (datetime2)
-as range left for values ('1900-01-01', @nowPlus5, @nowPlus10, @nowPlus15, @nowPlus20, @nowPlus25, @nowPlus30, @nowPlus35, @nowPlus40, @nowPlus45, @nowPlus50, @nowPlus55, @nowPlus60, @nowPlus65, @nowPlus70, @nowPlus75);
+as range left for values (@now, @nowPlus5, @nowPlus10, @nowPlus15, @nowPlus20, @nowPlus25, @nowPlus30, @nowPlus35, @nowPlus40, @nowPlus45, @nowPlus50, @nowPlus55, @nowPlus60, @nowPlus65, @nowPlus70, @nowPlus75);
 go
 create partition scheme schemeOwnershipHistoryByEndTime
 as partition fnOwnershipHistoryPartitionByEndTime
 to ([primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary]);
 go
 create partition scheme schemeOwnershipArchiveByEndTime
-as partition fnOwnershipHistoryPartitionByEndTime
+as partition fnOwnershipArchivePartitionByEndTime
 to ([primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary], [primary]);
 go
 create table history.OwnershipHistory
