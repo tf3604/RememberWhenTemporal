@@ -12,6 +12,12 @@
           <AssociatedConnUserName />
           <FullPath>000 - RestoreUtilityDB.sql</FullPath>
         </FileNode>
+        <FileNode Name="001 - RestoreLegacyDB.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>001 - RestoreLegacyDB.sql</FullPath>
+        </FileNode>
         <FileNode Name="009 - CreateLegacyHistory.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
@@ -113,12 +119,6 @@
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>080 - ConvertExistingHistory.sql</FullPath>
-        </FileNode>
-        <FileNode Name="SQL001 - RestoreLegacyDBQuery1.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>SQL001 - RestoreLegacyDBQuery1.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
