@@ -6,6 +6,7 @@
 -----------------------------------------------------------------------------------------------------------------------
 
 -- SQL now gives us time zone support.
+-- Note that there is no 'Central Daylight Time' (always use 'Standard')
 select sysdatetime() at time zone 'Central Standard Time' at time zone 'UTC';
 select sysdatetimeoffset() at time zone 'UTC';
 select sysutcdatetime();

@@ -39,7 +39,7 @@ where ModelId = 1;
 
 -- CONTAINED IN (start, end)
 -- start >= ValidTo AND end <= ValidFrom
--- Note that the record must be valid for the full period to be returned.
+-- Note that the record must be fully contained within time range, and does extend outside of it.
 select ModelId, ManufacturerId, ModelName, Description, ValidFrom, ValidTo
 from dbo.AutoModel for system_time contained in ('2017-06-06 19:58:02.6600107', '2017-06-06 20:15:02.6600107')
 where ModelId = 1;
