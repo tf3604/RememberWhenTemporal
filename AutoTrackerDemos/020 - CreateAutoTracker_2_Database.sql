@@ -162,6 +162,7 @@ with (system_versioning = on);
 -- The table appears in Management Studio.
 -- Note the new temporal icon for the table.
 -- Note that the history table is a subnode under the base table.
+
 -- Query to find the name of the history table
 select	t.object_id,
 		s.name source_table_schema,
@@ -185,6 +186,7 @@ go
 -- Create table and specify the name of the history table.
 -- The history table will automatically be created with the same schema.
 -- Note the "hidden" keyword on the datetime2 columns.
+-- Note that we MUST specifiy the schema name of the history table (even if it is "dbo")
 create table dbo.AutoModel
 (
 	ModelId int not null identity(1,1),
@@ -227,6 +229,7 @@ values (1, 'Squeeze', 'Mini'),
 go
 
 -- This time we'll create the history table manually.
+-- Why would we manually create it?  
 create table history.AutomobileHistory
 (
 	AutomobileId int not null,
