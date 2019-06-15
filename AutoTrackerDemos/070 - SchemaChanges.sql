@@ -63,6 +63,7 @@ alter column CellPhone varchar(20) not null;
 --The statement has been terminated.
 
 -- Why this this happen?
+select * from dbo.Customer;
 select * from history.CustomerHistory;
 
 -- Update the email address a couple of times.
