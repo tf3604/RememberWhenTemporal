@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------------------------------------------------------
 -- 040 - QueryingTemporal.sql
--- Version 1.0.0
+-- Version 1.0.5
 -- Look for the most recent version of this script at www.tf3604.com/temporal.
 -- MIT License.  See the bottom of this file for details.
 -----------------------------------------------------------------------------------------------------------------------
