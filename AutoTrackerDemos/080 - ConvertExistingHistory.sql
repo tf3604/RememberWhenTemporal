@@ -74,6 +74,10 @@ and c.ChangeType in ('Insert', 'Update');
 
 set identity_insert dbo.ConvertedCustomer off;
 
+-- Examine results
+
+select * from dbo.ConvertedCustomer;
+
 -- Note that we have no control over the "ValidFrom" column above -- it will be the current time.
 -- So we'll insert a history record with the same core column values and a period of validity
 -- from the legacy time through the current time.
@@ -90,6 +94,17 @@ from dbo.ConvertedCustomer cc
 inner join CurrentRecords c on cc.CustomerId = c.CustomerId
 where c.rn = 1
 and c.ChangeType in ('Insert', 'Update');
+
+-- Examine partial results
+
+select 'Base table' as RecordSourceTable, *
+from dbo.ConvertedCustomer
+where CustomerId in (10, 14, 18)
+union all
+select 'History table' as RecordSourceTable, *
+from history.ConvertedCustomerHistory
+where CustomerId in (10, 14, 18)
+order by CustomerId, ValidFrom;
 
 -- Now we'll insert all remaining records into the history table.
 -- Don't add the initial insert into the history table.
