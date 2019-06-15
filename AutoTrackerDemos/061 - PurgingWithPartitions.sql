@@ -99,7 +99,7 @@ where p.object_id = object_id('history.OwnershipHistory')
 and i.index_id = 1
 order by p.partition_number;
 
--- And the partition in archive table are empty.
+-- And one of the partitions in archive table has rows.
 select p.partition_number, prv.value range_start_value, p.rows
 from sys.partitions p
 inner join sys.indexes i on p.object_id = i.object_id and i.index_id = p.index_id
@@ -172,7 +172,7 @@ where p.object_id = object_id('history.OwnershipHistory')
 and i.index_id = 1
 order by p.partition_number;
 
--- And the partition in archive table are empty.
+-- And the next partition in archive table now has rows.
 select p.partition_number, prv.value range_start_value, p.rows
 from sys.partitions p
 inner join sys.indexes i on p.object_id = i.object_id and i.index_id = p.index_id
