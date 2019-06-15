@@ -424,7 +424,7 @@ create unique nonclustered index ix1_Ownership__AutomobileId on dbo.Ownership (A
 
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2017, Brian Hansen (brian at tf3604.com).
+-- Copyright 2017-2019, Brian Hansen (brian at tf3604.com).
 
 -- Permission is hereby granted, free of charge, to any person obtaining a copy
 -- of this software and associated documentation files (the "Software"), to deal

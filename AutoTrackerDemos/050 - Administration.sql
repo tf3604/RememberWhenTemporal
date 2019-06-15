@@ -30,7 +30,7 @@ inner join sys.columns ec on ec.object_id = t.object_id and ec.column_id = p.end
 
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2017, Brian Hansen (brian at tf3604.com).
+-- Copyright 2017-2019, Brian Hansen (brian at tf3604.com).
 
 -- Permission is hereby granted, free of charge, to any person obtaining a copy
 -- of this software and associated documentation files (the "Software"), to deal
