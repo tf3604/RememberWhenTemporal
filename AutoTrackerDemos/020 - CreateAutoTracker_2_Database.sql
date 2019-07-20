@@ -245,7 +245,7 @@ create table history.AutomobileHistory
 	Color nvarchar(20) null,
 	ValidFrom datetime2 not null,
 	ValidTo datetime2 not null
-);
+) with (data_compression = page);
 go
 -- This is the same index that SQL would put on the table if it created the history table.
 create clustered index idx1_AutomobileHistory on history.AutomobileHistory (ValidTo, ValidFrom);
@@ -281,7 +281,7 @@ create table history.CustomerHistory
 	ValidFrom datetime2 not null,
 	ValidTo datetime2 not null,
 	WhoChanged sysname not null default (suser_sname())
-);
+) with (data_compression = page);
 go
 create clustered index ix1_CustomerHistory on history.CustomerHistory (ValidTo, ValidFrom);
 go
@@ -387,7 +387,7 @@ create table history.OwnershipHistory
 	EffectiveDate date not null,
 	ValidFrom datetime2 not null,
 	ValidTo datetime2 not null
-);
+) with (data_compression = page);
 go
 create clustered index idx_OwnershipHistory on history.OwnershipHistory (ValidTo, ValidFrom)
 on schemeOwnershipHistoryByEndTime (ValidTo);
