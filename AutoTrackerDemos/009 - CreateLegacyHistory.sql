@@ -8,9 +8,16 @@ begin
 	drop database LegacyAutoTracker;
 end
 
+/*
 create database LegacyAutoTracker
 on (name = N'LegacyAutoTracker', filename = N'c:\data\sql2016\data\LegacyAutoTracker.mdf' , size = 10240kb , filegrowth = 10240kb )
 log on (name = N'LegacyAutoTracker_log', filename = N'c:\data\sql2016\log\LegacyAutoTracker_log.ldf' , size = 10240kb , filegrowth = 10240kb )
+go
+*/
+
+create database LegacyAutoTracker
+on (name = N'LegacyAutoTracker', filename = N'C:\data\Express2016SP1\LegacyAutoTracker.mdf' , size = 10240kb , filegrowth = 10240kb )
+log on (name = N'LegacyAutoTracker_log', filename = N'C:\data\Express2016SP1\log\LegacyAutoTracker_log.ldf' , size = 10240kb , filegrowth = 10240kb )
 go
 
 use LegacyAutoTracker;

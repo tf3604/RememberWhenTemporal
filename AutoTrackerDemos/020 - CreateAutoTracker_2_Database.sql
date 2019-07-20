@@ -21,9 +21,16 @@ go
 -- Create database.  Adjust paths as needed.
 -- Nothing special here.  It's just a database, no features need to be enabled.
 ----------------------------------------------------------------------------------------------------
+/*
 create database AutoTracker2
 on (name = N'AutoTracker2', filename = N'c:\data\sql2016\data\AutoTracker2.mdf' , size = 10240kb , filegrowth = 10240kb )
 log on (name = N'AutoTracker2_log', filename = N'c:\data\sql2016\log\AutoTracker2_log.ldf' , size = 10240kb , filegrowth = 10240kb )
+go
+*/
+
+create database AutoTracker2
+on (name = N'AutoTracker2', filename = N'C:\data\Express2016SP1\data\AutoTracker2.mdf' , size = 10240kb , filegrowth = 10240kb )
+log on (name = N'AutoTracker2_log', filename = N'C:\data\Express2016SP1\log\AutoTracker2_log.ldf' , size = 10240kb , filegrowth = 10240kb )
 go
 
 use AutoTracker2;
