@@ -147,11 +147,15 @@ drop table if exists history.OwnershipArchive;
 drop schema if exists history;
 go
 create schema history authorization dbo;
+go
 
 ----------------------------------------------------------------------------------------------------
 -- Create tables.
 ----------------------------------------------------------------------------------------------------
-go
+
+----------------------------------------------------------------------------------------------------
+-- TABLE: Manufacturer (let SQL create & name the history table)
+----------------------------------------------------------------------------------------------------
 -- Create table without specifying the history table name.
 -- SQL Server will create a history table with system-generated
 -- name with the same schema as the base table.
@@ -190,6 +194,9 @@ values (1, 'FordoyotaBenz');
 set identity_insert dbo.Manufacturer off;
 go
 
+----------------------------------------------------------------------------------------------------
+-- TABLE: AutoModel (let SQL create the history table with a name we supply)
+----------------------------------------------------------------------------------------------------
 -- Create table and specify the name of the history table.
 -- The history table will automatically be created with the same schema.
 -- Note the "hidden" keyword on the datetime2 columns.
@@ -235,7 +242,11 @@ values (1, 'Squeeze', 'Mini'),
 (1, 'Guzzler', 'Large SUV');
 go
 
+----------------------------------------------------------------------------------------------------
+-- TABLE: Automobile (we'll create the history table ourself)
+----------------------------------------------------------------------------------------------------
 -- This time we'll create the history table manually.
+-- Note that we are using page compression (this is automatic when SQL creates the table)
 -- Why would we manually create it?  
 create table history.AutomobileHistory
 (
@@ -264,6 +275,10 @@ create table dbo.Automobile
 )
 with (system_versioning = on (history_table = history.AutomobileHistory));
 go
+
+----------------------------------------------------------------------------------------------------
+-- TABLE: Customer (plus a archive table)
+----------------------------------------------------------------------------------------------------
 drop table if exists history.CustomerHistory;
 go
 
@@ -317,6 +332,9 @@ go
 create clustered index ix1_CustomerArchive on history.CustomerArchive (ValidTo, ValidFrom);
 go
 
+----------------------------------------------------------------------------------------------------
+-- TABLE: Dealer
+----------------------------------------------------------------------------------------------------
 -- Nothing special here.
 create table dbo.Dealer
 (
@@ -333,6 +351,9 @@ create table dbo.Dealer
 with (system_versioning = on (history_table = history.DealerHistory));
 go
 
+----------------------------------------------------------------------------------------------------
+-- TABLE: Ownership (with an archive table, and with partitioning on history and archive)
+----------------------------------------------------------------------------------------------------
 -- Create a history table and an archive table with partitioning.
 -- We'll come back to this.
 if exists (select * from sys.partition_schemes ps where ps.name = 'schemeOwnershipHistoryByEndTime')
@@ -427,8 +448,6 @@ create table dbo.Ownership
 with (system_versioning = on (history_table = history.OwnershipHistory));
 
 create unique nonclustered index ix1_Ownership__AutomobileId on dbo.Ownership (AutomobileId);
-
-
 
 -----------------------------------------------------------------------------------------------------------------------
 -- Copyright 2017-2019, Brian Hansen (brian at tf3604.com).
